@@ -1,0 +1,43 @@
+#message{
+   .close:hover{
+      color: unset;
+   }
+
+   .close{
+      padding: 0;
+      padding: 0 15px;
+      top: 0;
+      bottom: 0;
+      right: 0;
+   }
+
+   .message{
+      .alert{
+         padding-right: 115px !important;
+         padding-top: 6px;
+         padding-bottom: 6px;
+         margin: 0;
+         color: #dddddddf;
+         font-size: .8rem;
+      }
+      .alert-time-stamp{
+         position: absolute;
+         top: 50%;
+         right: 54px;
+         transform: translateY(-50%);
+         font-size: .65rem;
+         color: rgb(180, 180, 180);
+      }
+   }
+
+   ::-webkit-scrollbar{
+      width: 4px;
+      background-color: inherit;
+   }
+
+   ::-webkit-scrollbar-thumb{
+      background-color: rgb(179, 179, 179);
+   }
+
+}
+

@@ -1,0 +1,145 @@
+@use 'sass:map';
+@use './modules/message_box';
+@use './scss/bootstrap.scss';
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
+
+$colors: (
+   "background": #f9f9f9,
+   "cards-back": #FFF
+);
+
+body{
+   background-color: map.get($colors, "background");
+   font-family: 'Ubuntu', sans-serif;
+}
+
+.no-gutters{
+   margin-right: -15px;
+   margin-left: 0;
+
+   >.col,
+   >[class*='col-']{
+      padding-right: 15px;
+      padding-left: 0;
+   }
+}
+
+#header-row{
+   margin-bottom: 15px;
+}
+
+//style for pill navigation
+.nav-margin{
+   margin-bottom: 15px;
+}
+
+#tab-container{
+   .nav{
+      #put-tab.active{
+         background-color: #ffc107;
+         color: black;
+      }
+      
+      #delete-tab.active{
+         background-color: #dc3545;
+      }
+      
+      #tab-container{
+         .card-body{
+            padding: 10px;
+         }
+      }
+   }
+}
+
+//end
+
+#post-pane .card,
+#put-pane .card,
+#delete-pane .card,
+#message.card{
+   height: 285px;
+}
+
+.form-group{
+   margin-bottom: 8px;
+
+   .form-control:focus{
+      box-shadow: none;
+   }
+
+   label{
+      margin-bottom: 0;
+   }
+}
+
+
+
+#table-container{
+   #tableRefreshBtn{
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      height: 20px;
+      padding: 0 7px;
+      border-radius: 3px;
+      border: none;
+      background-color: #f6f6f6;
+      font-size: .75rem;
+      box-shadow: 0 1px 4px 0 rgba(0, 0, 0, .3),
+                  0 5px 15px 0 rgba(0, 0, 0, .05);
+      transition: all 0.15s;
+      
+      &:active{
+         box-shadow: 0 .5px 4px 0 rgba(0, 0, 0, .3),
+                     0 3px 15px 0 rgba(0, 0, 0, .05);
+         transform: translateY(0.5px);
+      }
+
+      &:focus{
+         border: none;
+         outline: none;      
+      }
+   }
+
+   .card-title{
+      padding-right: 110px;
+   }
+
+   .card-body{
+      max-height: 310px;
+      overflow: auto;
+   }
+   
+   th:first-child{
+      width: 20%;
+   }
+   
+   ::-webkit-scrollbar{
+      width: 4px;
+      background-color: inherit;
+   }
+
+   ::-webkit-scrollbar-thumb{
+      background-color: rgb(179, 179, 179);
+   }
+}
+
+
+.card,
+#message{
+   box-shadow: 
+         0 3px 6px 0 rgba(34, 23, 23, 0.15),         
+         0 5px 12px 0 rgba(34, 23, 23, 0.05),
+         0 0 30px 4px rgba(34, 23, 23, 0.01),;
+}
+
+@media screen and (min-width: 768px) {
+   #tab-container{
+      height: 285px;
+   }
+
+   .nav-margin{
+      margin-bottom: 0;
+   }
+}

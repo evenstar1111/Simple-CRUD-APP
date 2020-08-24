@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title> Keep Notes </title>
+   <link rel="icon"
+         type="image/png"
+         href="/favicon.png">
+   <link rel="stylesheet" type="text/css" href="/stylesheet/index.css">
+
+   <script src="/js/jQuery-v3.4.1.js"></script>
+   <script src="/js/bootstrap.bundle.min.js"></script>
+</head>
+<body>
+   <div class="container-fluid mt-3" style="padding-bottom: 16px;">
+
+      <div id="header-row" class="row no-gutters">
+         <div class="col-md-3 col-lg-2 nav-margin">
+            <div id="tab-container" class="card">
+               <div class="card-body">
+                  <ul class="nav nav-pills flex-md-column">
+                     <li class="nav-item" title="make a post request">
+                        <a id="post-tab" class="nav-link active" data-toggle="pill" href="#post-pane"> POST </a>
+                     </li>
+                     <li class="nav-item" title="make a put request">
+                        <a id="put-tab" class="nav-link" data-toggle="pill" href="#put-pane"> PUT </a>
+                     </li>
+                     <li class="nav-item" title="make a delete request">
+                        <a id="delete-tab" class="nav-link" data-toggle="pill" href="#delete-pane"> DELETE </a>
+                     </li>
+                  </ul>
+               </div>
+            </div>
+         </div>
+         <div class="col-md-9 col-lg-6">
+            <div class="tab-content">
+               <div class="tab-pane fade show active" id="post-pane">
+                  <div class="card">
+                     <div class="card-body">
+                        <div>
+   
+                           <section class="form-group">
+                              <label for="post-title"> Title </label>
+                              <input type="text" class="form-control form-control-sm" id="post-title" name="title" placeholder="enter a title">
+                           </section>
+         
+                           <section class="form-group">
+                              <label for="post-content"> Content </label>
+                              <textarea class="form-control form-control-sm" id="post-content" name="content" placeholder="enter the body"></textarea>
+                           </section>
+         
+                           <button id="post-button" class="btn btn-primary btn-sm" type="button"> Post </button>
+         
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <div class="tab-pane fade" id="put-pane">
+                  <div class="card">
+                     <div class="card-body">
+                        <div>
+         
+                           <section class="form-group">
+                              <label for="update-filter">Query Text</label>
+                              <input type="text" class="form-control form-control-sm" id="update-filter" placeholder="enter query text">
+                           </section>
+         
+                           <section class="form-group">
+                              <label for="update-title"> Title </label>
+                              <input type="text" class="form-control form-control-sm" id="update-title" placeholder="modify title">
+                           </section>
+         
+                           <section class="form-group">
+                              <label for="update-content"> Content </label>
+                              <textarea class="form-control form-control-sm" id="update-content" placeholder="modify content"></textarea>
+                           </section>
+         
+                           <button id="update-button" class="btn btn-warning btn-sm" type="button"> Update </button>
+
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <div class="tab-pane fade" id="delete-pane">
+                  <div class="card">
+                     <div class="card-body">
+                        <div>
+         
+                           <section class="form-group">
+                              <label for="delete-filter"> Query </label>
+                              <input type="text" class="form-control form-control-sm" id="delete-filter" placeholder="enter query text">
+                           </section>
+         
+                           <button id="delete-button" class="btn btn-danger btn-sm" type="button"> Delete </button>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <div class="col-lg-4 d-none d-lg-block">
+            <div class="card bg-secondary text-white" id="message">
+               <div class="card-header"> Message Box </div>
+               <div id="responseMessage" class="card-body p-0 overflow-auto">
+                  <div class="message success">
+                     
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+
+      
+      <div id="table-container" class="card overflow-auto"> 
+         <button id="tableRefreshBtn" type="button"> refresh </button>        
+         <div class="card-body">
+            <h3 class="card-title m-0"> Response from <span class="badge badge-success"> GET </span> Request </h3>
+
+            <hr class="mt-3 mb-4">
+            
+            <table id="resTable" class="table table-sm tabl-striped table-hover" style="min-width: 760px;">
+               <thead class="thead-light">
+                  <tr>
+                     <th> Title </th>
+                     <th> Content </th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                     <% for (let i = 0; i < contents.length; i++) { %>
+                        <tr>
+                           <td><%= contents[i].title %></td>
+                           <td><%= contents[i].content %></td>
+                        </tr>
+                     <% } %> 
+                  </tbody>
+            </table>
+         </div>
+      </div>
+   
+
+      <script src="/js/main.js"></script>
+      <!-- <script src="/js/tooltip.js"></script> -->
+   </div>
+</body>
+</html>
