@@ -10,3 +10,5 @@ Frameworks and libraries used -
 - ejs (Embedded Javascript)
 
 
+The app is deployed to ***Heroku***
+to open the app click [`here`](https://salty-tor-95622.herokuapp.com/)
