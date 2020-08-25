@@ -2,6 +2,7 @@ const updateBtn   = document.getElementById('update-button');
 const delBtn      = document.getElementById('delete-button');
 const postBtn     = document.getElementById('post-button');
 const messageBox  = document.getElementById('responseMessage');
+const clearMsgBtn = document.getElementById('clearMsg');
 const refreshBtn  = document.getElementById('tableRefreshBtn');
 const table       = document.getElementById('resTable');
 const tbody       = table.getElementsByTagName('TBODY')[0];
@@ -38,6 +39,12 @@ postBtn.addEventListener('click', _ => {
    makeFetchRequest('post', data);
 });
 
+clearMsgBtn.addEventListener('click', () => {
+   if(messageBox.childElementCount) {
+      $(messageBox).empty();
+   }
+})
+
 refreshBtn.addEventListener('click', _ => {
    fetch('/refresh', {
       method: 'get'
@@ -47,15 +54,9 @@ refreshBtn.addEventListener('click', _ => {
       })
       .then(data => {
          let diff = data.length - tbody.childElementCount;
-         if(diff > 0) {
-            let doc              = data[ data.length - 1 ];
-            insertRow(doc);
-         }
-
-         if(diff < 0) {
+         if (diff !== 0) {            
             $(tbody).empty();
-            
-            for(doc of data) {
+            for (doc of data) {
                insertRow(doc);
             }
          }
@@ -71,7 +72,7 @@ refreshBtn.addEventListener('click', _ => {
             tbody.append(tr);
          }
       })
-})
+});
 
 function makeFetchRequest(method, data) {
    fetch('/app', {
@@ -143,7 +144,12 @@ function insertMessaage(mssg) {
    alert.append(timeStamp);
    alert.append(close);
    message.append(alert);
-   messageBox.append(message);
+   // messageBox.append(message);
+   if(!messageBox.firstChild) {
+      messageBox.append(message);
+   } else {
+      messageBox.insertBefore(message, messageBox.firstChild);
+   }
 }
 
 
