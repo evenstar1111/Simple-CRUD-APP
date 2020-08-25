@@ -3,7 +3,7 @@ const bodyParser    = require('body-parser');
 const express       = require('express');
 const app           = express();
 
-const PORT          = 8000;
+const PORT          = process.env.PORT || 8000;
 
 const dbConfig      = require('./App/db-config');
 const connString    = `mongodb+srv://${dbConfig.user}:${dbConfig.password}@cluster0.q0uvf.mongodb.net/<dbname>?retryWrites=true&w=majority`;
