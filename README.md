@@ -28,4 +28,4 @@ To open the app click [`here`](https://salty-tor-95622.herokuapp.com/).
 <br />
 <br />
 
-To understand understand how **REST API** works and to build a simple CRUD app I recommend you to read [`this article`](https://zellwk.com/blog/crud-express-mongodb/) by ***zellwk***.
+To understand how **REST API** works and to build a simple CRUD app [`this article`](https://zellwk.com/blog/crud-express-mongodb/) by ***zellwk*** helped me a lot.
